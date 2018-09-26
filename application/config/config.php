@@ -23,11 +23,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+	$protocol = 'https://';
+} else {
+	$protocol = 'http://';
+}
 
-$root = "http://".$_SERVER['HTTP_HOST'];
+$root = $protocol.$_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
 $config['base_url']    = "$root";
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +45,7 @@ $config['base_url']    = "$root";
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -328,7 +334,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'MySecretKey_by_RadioParty.RO';
+$config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -382,7 +388,7 @@ $config['encryption_key'] = 'MySecretKey_by_RadioParty.RO';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'cattering';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
@@ -404,8 +410,8 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']	= 'radioparty';
-$config['cookie_domain']	= 'radioparty';
+$config['cookie_prefix']	= '';
+$config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
@@ -453,10 +459,10 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'csrf_tokenRadioParty.RO';
-$config['csrf_cookie_name'] = 'csrf_cookieRadioParty.RO';
+$config['csrf_token_name'] = 'cattering_token_name';
+$config['csrf_cookie_name'] = 'cattering_cookie_name';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
+$config['csrf_regenerate'] = FALSE;
 $config['csrf_exclude_uris'] = array();
 
 /*
