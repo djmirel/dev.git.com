@@ -38,6 +38,7 @@
     <?php echo $output; ?>
     </div>
 </div>
+
 <div id="bottom"><?php
 //If we had to display some extra modules (views). This will display all the modules that have
 //loaded at the "bottom" position. But first we should propably register the postion inside
