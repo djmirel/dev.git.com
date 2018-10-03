@@ -14,8 +14,8 @@ class Admin extends MY_Controller {
 	}
 
 	function index(){
-		$this->checklogstatus();
-		$this->_append_title('index');
+		$this->restrictedadrea();
+		$this->_append_title('Administrare');
 		$this->load->view('adminpages/admin_index',$this->data);
 	}
 
@@ -40,7 +40,7 @@ class Admin extends MY_Controller {
 		redirect(base_url().'admin/login','location');
 	}
 
-	private function checklogstatus(){
+	private function restrictedadrea(){
 		$logat = $this->session->userdata('logat');
 		if($logat)
 		{
