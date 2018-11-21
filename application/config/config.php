@@ -463,7 +463,18 @@ $config['csrf_token_name'] = 'cattering_token_name';
 $config['csrf_cookie_name'] = 'cattering_cookie_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = FALSE;
-$config['csrf_exclude_uris'] = array();
+$config['csrf_exclude_uris'] = array(
+                                'admin/ajax/actdezact',
+                                'admin/ajax/stergecategorie',
+                                'admin/ajax/ordoneazacategorii',
+                                'admin/ajax/getCatDetails',
+                                'admin/ajax/ordoneazaProduse',
+                                'admin/ajax/getSingleProdById',
+                                'admin/ajax/stergeProdus',
+                                'admin/ajax/actdezactP',
+                                'admin/ajax/saveText',
+                                'admin/ajax/uploadImg'
+                            );
 
 /*
 |--------------------------------------------------------------------------
